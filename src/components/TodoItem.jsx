@@ -31,13 +31,19 @@ export const TodoItem = ({ todo, className = "" }) => {
     setIsEditable(false);
   }
 
+  const padding = 4;
+
   const displayEditableTodoName = (
     <textarea
       type="text"
       onChange={(e) => setTodoTask(e.target.value)}
       ref={todoInputRef}
-      style={{ height: todoInputDimensions.height, width: todoInputDimensions.width + 30 }}
-      className="outline-none rounded-[4px] w-full border-solid border-black border-[1px] resize-none p-1"
+      style={{
+        height: todoInputDimensions.height + (padding * 2),
+        width: todoInputDimensions.width >= 30 ? todoInputDimensions.width  : todoInputDimensions.width + 40,
+        padding: padding
+      }}
+      className="outline-none rounded-[4px] w-full border-solid border-black border-[1px] resize-none"
     >{todoTask}</textarea>
   )
 
@@ -45,7 +51,7 @@ export const TodoItem = ({ todo, className = "" }) => {
 
   return (
     <div
-      className={`bg-white h-fit rounded-[4px] gap-2 flex items-center justify-between p-2 pl-4 ${className}`}
+      className={`bg-white min-h-fit rounded-[4px] gap-2 flex items-center justify-between p-2 pl-4 ${className}`}
     >
       <div className="flex items-center gap-4">
         <input
