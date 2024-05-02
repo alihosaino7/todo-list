@@ -36,7 +36,7 @@ export const TodoItem = ({ todo, className = "" }) => {
       type="text"
       onChange={(e) => setTodoTask(e.target.value)}
       ref={todoInputRef}
-      style={{ height: todoInputDimensions.height, width: todoInputDimensions.width + 4 }}
+      style={{ height: todoInputDimensions.height, width: todoInputDimensions.width + 8 }}
       className="outline-none rounded-[4px] w-full border-solid border-black border-[1px] resize-none p-1"
     >{todoTask}</textarea>
   )
